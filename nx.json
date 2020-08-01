@@ -28,6 +28,9 @@
     "lagsonblog-e2e": {
       "tags": [],
       "implicitDependencies": ["lagsonblog"]
+    },
+    "home-feature": {
+      "tags": []
     }
   }
 }
