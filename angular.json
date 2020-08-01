@@ -1,0 +1,142 @@
+{
+  "version": 1,
+  "projects": {
+    "lagsonblog": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/lagsonblog",
+      "sourceRoot": "apps/lagsonblog/src",
+      "prefix": "lagson-inc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/lagsonblog",
+            "index": "apps/lagsonblog/src/index.html",
+            "main": "apps/lagsonblog/src/main.ts",
+            "polyfills": "apps/lagsonblog/src/polyfills.ts",
+            "tsConfig": "apps/lagsonblog/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/lagsonblog/src/favicon.ico",
+              "apps/lagsonblog/src/assets"
+            ],
+            "styles": ["apps/lagsonblog/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/lagsonblog/src/environments/environment.ts",
+                  "with": "apps/lagsonblog/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "lagsonblog:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "lagsonblog:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "lagsonblog:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/lagsonblog/tsconfig.app.json",
+              "apps/lagsonblog/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/lagsonblog/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/lagsonblog/jest.config.js",
+            "tsConfig": "apps/lagsonblog/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/lagsonblog/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "lagsonblog-e2e": {
+      "root": "apps/lagsonblog-e2e",
+      "sourceRoot": "apps/lagsonblog-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/lagsonblog-e2e/cypress.json",
+            "tsConfig": "apps/lagsonblog-e2e/tsconfig.e2e.json",
+            "devServerTarget": "lagsonblog:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "lagsonblog:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/lagsonblog-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/lagsonblog-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular",
+    "analytics": false
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "lagsonblog"
+}
