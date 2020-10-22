@@ -1,0 +1,17 @@
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html, body {
+    height: 100vh;
+    // https://developer.mozilla.org/fr/docs/Web/CSS/font-size
+    font-size: 62.5%; //taille en pixel escomptée 10px, taille du navigateur 16px => 10px/16px = 0.625 = 62.5%
+}
+
+body{
+    box-sizing: border-box;
+}

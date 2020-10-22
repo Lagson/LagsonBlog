@@ -25,7 +25,15 @@
               "apps/lagsonblog/src/favicon.ico",
               "apps/lagsonblog/src/assets"
             ],
-            "styles": ["apps/lagsonblog/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+              "apps/lagsonblog/src/styles.scss"
+            ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "libs/shared/styles/src"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -83,7 +91,10 @@
               "apps/lagsonblog/tsconfig.app.json",
               "apps/lagsonblog/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!apps/lagsonblog/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/lagsonblog/**/*"
+            ]
           }
         },
         "test": {
@@ -118,8 +129,13 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": ["apps/lagsonblog-e2e/tsconfig.e2e.json"],
-            "exclude": ["**/node_modules/**", "!apps/lagsonblog-e2e/**/*"]
+            "tsConfig": [
+              "apps/lagsonblog-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/lagsonblog-e2e/**/*"
+            ]
           }
         }
       }
@@ -137,7 +153,10 @@
               "libs/home/feature/tsconfig.lib.json",
               "libs/home/feature/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!libs/home/feature/**/*"]
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/home/feature/**/*"
+            ]
           }
         },
         "test": {
