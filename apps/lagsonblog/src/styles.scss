@@ -11,9 +11,9 @@
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
-// hue. Available color palettes: https://material.io/design/color/
-$lagsonblog-primary: mat-palette($mat-indigo);
-$lagsonblog-accent: mat-palette($mat-pink, A200, A100, A400);
+// hue. Available color palettes: https://material.io/design/color/ A200, A100, A400
+$lagsonblog-primary: mat-palette($mat-green, 500, 200, 900);
+$lagsonblog-accent: mat-palette($mat-orange, 500, 200, 900);
 
 // The warn palette is optional (defaults to red).
 $lagsonblog-warn: mat-palette($mat-red);
@@ -35,5 +35,5 @@ $lagsonblog-theme: mat-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 @import "_base";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body { font-family: Roboto, "Helvetica Neue", sans-serif; }
